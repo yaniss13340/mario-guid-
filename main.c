@@ -50,13 +50,38 @@ int main(int argc, char *argv[])
         SDL_RenderCopy(renderer,loadImage(path , renderer ),NULL,NULL);
        
         SDL_RenderPresent(renderer);
-        SDL_Delay(1000);
+        SDL_Event event;
+        int continuer = 1;
+       while (SDL_PollEvent(&event) || continuer == 1)
+       {
+        switch (event.type)
+        {
+        case SDL_QUIT:
+           continuer = 0;
+            break;
+        
+         case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+            case SDLK_ESCAPE:
+               continuer = 0;
+                break;
+            
+            
+            }
+       
+       }
+      
+       
+    }
+        
     
 
   
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
-    SDL_Quit();
+   SDL_Quit();
+   
 
     return 0;
 
