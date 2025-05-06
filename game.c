@@ -10,8 +10,9 @@ int jouer(SDL_Renderer* renderer) {
 	
     int continuer = 1;
     SDL_Event events;
-
+    SDL_SetRenderDrawColor(renderer, 255, 255, 255, 0);
     while(continuer){ //coeur du jeu ici, les actions seront repété pour faire le déplacement des différentes images, ...
+        SDL_RenderClear(renderer);
         while (SDL_PollEvent(&events))
         {
             switch (events.type)
@@ -19,7 +20,14 @@ int jouer(SDL_Renderer* renderer) {
             case SDL_QUIT:
                 continuer = 0;
                 break;
+                
 				
+            }
+            switch (events.key.keysym.sym)
+            {
+            case SDLK_ESCAPE:
+                continuer = 0;
+                break;
             }
         }
         
@@ -31,8 +39,8 @@ int jouer(SDL_Renderer* renderer) {
     }
     
 	//a vous de compléter, au fur et à mesure, les deux fonctions en dessous pour bien faire le nettoyage. 
-    LibererMap(map, sprites);
-    freePersonnage(mario, goomba, nbGoomba);
+    //LibererMap(map, sprites);
+    //freePersonnage(mario, goomba, nbGoomba);
 
     return continuer;
 }
