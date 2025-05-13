@@ -9,11 +9,11 @@ et si le niveau est fini (win et loose).
     #include "file.h"
     #include "charactere.h"
 
-    void deplacement(Map* map, Personnage* mario, Sprites* imageDecors, Personnage** goombas, int nbGoomba);
-    int collisionHautBas(Map* map, SDL_Rect perso, Sprites* imageDecors);
-    int collisionDecor(Map* map, SDL_Rect perso, Sprites* imageDecors, Personnage* mario);
-    int sortiDecors(Map* map, SDL_Rect perso);
-    void mapScroll(Map* map, Personnage* mario);
-    int niveauFini(SDL_Renderer *renderer, Personnage *mario);
+    int event(Personnage *mario, SDL_Renderer *renderer, SDL_Event event, int *img);
+    void deplacer(Personnage *mario);
+    void saut(Personnage *mario, int *img);
+    void afficher_mario(Personnage *mario, int *img);
 
+
+  
 #endif

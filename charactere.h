@@ -9,9 +9,16 @@ Attention la map doit déjà être chargé avant de créer un charactère.
     
     #include <SDL2/SDL.h>
     #include "file.h"
+    #define MARIO_DROITE 0
+    #define MARIO_DROITE_COURS 1
+    #define MARIO_DROITE_SAUT 2
+    #define MARIO_GAUCHE 3
+    #define MARIO_GAUCHE_COURS 4
+    #define MARIO_GAUCHE_SAUT 5
 
-    #define WIDTH_MARIO 30 //largeur des images mario
-    #define HEIGHT_MARIO 40 //hauteur des images mario
+
+    #define WIDTH_MARIO 22.5 //largeur des images mario
+    #define HEIGHT_MARIO 30 //hauteur des images mario
     #define NUMBER_IMAGE_MARIO 6 //nombre d'image de mario en tout
 
     typedef struct Personnage Personnage;
@@ -29,9 +36,8 @@ Attention la map doit déjà être chargé avant de créer un charactère.
         int lvl, lvlperdu;
     };
 
-    void chargerMario(Personnage* mario, Map* map, SDL_Renderer *renderer);
-    void afficherPerso(Personnage* mario, int xscroll, int yscroll , SDL_Renderer *renderer);
-    int chooseSpriteMovement(Personnage* mario, int numero1, int numero2);
+    
     void freePersonnage(Personnage* mario, Personnage **goomba, int nbGoomba);
+    void init_mario(Personnage *mario, SDL_Renderer *renderer, SDL_Rect pos);
     
 #endif
